@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
 
-<body class="bg-background">
+<body class="bg-background relative">
 	<main class="flex">
 		<aside class="max-w-xs hidden md:block w-full">
 			<div class="px-8 py-8 text-gray-700 pl-16">
@@ -25,34 +25,32 @@
 				</div>
 				<div id="menu" class="px-8 pl-16 text-gray-600 pt-6">
 					<ul>
-						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">dashboard</span><span class="pl-4">Dashboard</span></a></li>
-						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">account_balance_wallet</span><span class="pl-4">My Wallet</span></a></li>
-						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">paid</span><span class="pl-4">Transaction</span></a></li>
-						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">local_atm</span><span class="pl-4">Crypto</span></a></li>
-						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">change_circle</span><span class="pl-4">Exchange</span></a></li>
-						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">settings</span><span class="pl-4">Setting</span></a></li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span
+									class="material-icons-outlined">dashboard</span><span
+									class="pl-4">Dashboard</span></a></li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span
+									class="material-icons-outlined">account_balance_wallet</span><span class="pl-4">My
+									Wallet</span></a></li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span
+									class="material-icons-outlined">paid</span><span class="pl-4">Transaction</span></a>
+						</li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span
+									class="material-icons-outlined">local_atm</span><span class="pl-4">Crypto</span></a>
+						</li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span
+									class="material-icons-outlined">change_circle</span><span
+									class="pl-4">Exchange</span></a></li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span
+									class="material-icons-outlined">settings</span><span class="pl-4">Setting</span></a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</aside>
-		<div class="content flex-grow">
-			<div class="text-gray-700 md:hidden relative" x-data="{open:true}">
-				<div @click.away="open=false" x-show="open"   x-transition:enter="transition duration-200 transform ease-out"
-				x-transition:enter-start="scale-75"
-				x-transition:leave="transition duration-100 transform ease-in"
-				x-transition:leave-end="opacity-0 scale-90" class="absolute left-0  h-screen bg-icon text-gray-200">
-					<ul>
-						<li class="px-4 flex py-4 justify-between"><span class="material-icons mr-4">menu</span>	Menu <span @click="open=false" class="material-icons">close</span></li>
-						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">dashboard</span><span class="pl-4">Dashboard</span></a></li>
-						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">account_balance_wallet</span><span class="pl-4">My Wallet</span></a></li>
-						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">paid</span><span class="pl-4">Transaction</span></a></li>
-						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">local_atm</span><span class="pl-4">Crypto</span></a></li>
-						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">change_circle</span><span class="pl-4">Exchange</span></a></li>
-						<li class="p-2 pl-4  py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">settings</span><span class="pl-4">Setting</span></a></li>
-					</ul>
-				</div>
+		<div class="content flex-grow relative">
+			<div class="text-gray-700 md:hidden">
 				<div class="pt-8 px-8">
-					<span class="material-icons" @click="open=true">menu</span>
+					<span class="material-icons" onclick="document.getElementById('opener').click()">menu</span>
 					<a href="/" class="text-4xl font-bold ml-2">Wallet</a>
 				</div>
 			</div>
@@ -199,7 +197,7 @@
 											<span class="material-icons">expand_more</span></button>
 									</div>
 									<div class="w-full">
-										<canvas id="chart" ></canvas>
+										<canvas id="chart"></canvas>
 									</div>
 								</div>
 							</div>
@@ -315,6 +313,29 @@
 			</div>
 		</div>
 	</main>
+	<div x-data="{open:false}" x-cloak @click.away="open=false" x-show="open"
+		x-transition:enter="transition duration-200 transform ease-out" x-transition:enter-start="scale-75"
+		x-transition:leave="transition duration-100 transform ease-in" x-transition:leave-end="opacity-0 scale-90"
+		class="fixed left-0 top-0 max-w-xs  h-screen bg-icon text-gray-200" style="top:0; height: 100%; position:fixed">
+		<ul>
+			<li class="px-4 flex py-4 justify-between"><span class="material-icons mr-4">menu</span> Menu <span
+					@click="open=false" class="material-icons">close</span></li>
+			<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span
+						class="material-icons-outlined">dashboard</span><span class="pl-4">Dashboard</span></a></li>
+			<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span
+						class="material-icons-outlined">account_balance_wallet</span><span class="pl-4">My
+						Wallet</span></a></li>
+			<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span
+						class="material-icons-outlined">paid</span><span class="pl-4">Transaction</span></a></li>
+			<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span
+						class="material-icons-outlined">local_atm</span><span class="pl-4">Crypto</span></a></li>
+			<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span
+						class="material-icons-outlined">change_circle</span><span class="pl-4">Exchange</span></a></li>
+			<li class="p-2 pl-4  py-2 "><a class="flex items-center" href="/"><span
+						class="material-icons-outlined">settings</span><span class="pl-4">Setting</span></a></li>
+		</ul>
+		<button @click="open=true" id="opener" class='hidden'>click</button>
+	</div>
 	<div id="fb-root"></div>
 	<script>
 		// window.fbAsyncInit = function () {
