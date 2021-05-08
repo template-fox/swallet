@@ -5,39 +5,373 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Home Page</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-		integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-		crossorigin="anonymous" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
 
-<body>
-
+<body class="bg-background">
+	<main class="flex">
+		<aside class="max-w-xs hidden md:block w-full">
+			<div class="px-8 py-8 text-gray-700 pl-16">
+				<a href="/" class="text-4xl font-bold pl-12">Wallet</a>
+			</div>
+			<div class="profile">
+				<div class="bg-white rounded-full border-gray-300 border-4 w-24 mx-auto mb-4">
+					<img src="/profile.png" class="rounded-full" alt="">
+				</div>
+				<div>
+					<h4 class="font-bold text-center text-xl text-gray-700">Alex Granger</h4>
+					<p class="text-center text-gray-600">Product Designer</p>
+				</div>
+				<div id="menu" class="px-8 pl-16 text-gray-600 pt-6">
+					<ul>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">dashboard</span><span class="pl-4">Dashboard</span></a></li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">account_balance_wallet</span><span class="pl-4">My Wallet</span></a></li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">paid</span><span class="pl-4">Transaction</span></a></li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">local_atm</span><span class="pl-4">Crypto</span></a></li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">change_circle</span><span class="pl-4">Exchange</span></a></li>
+						<li class="p-2 pl-4  py-3 flex items-center"><a href="/"><span class="material-icons-outlined">settings</span><span class="pl-4">Setting</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</aside>
+		<div class="content flex-grow">
+			<div class="text-gray-700 md:hidden relative" x-data="{open:true}">
+				<div @click.away="open=false" x-show="open"   x-transition:enter="transition duration-200 transform ease-out"
+				x-transition:enter-start="scale-75"
+				x-transition:leave="transition duration-100 transform ease-in"
+				x-transition:leave-end="opacity-0 scale-90" class="absolute left-0  h-screen bg-icon text-gray-200">
+					<ul>
+						<li class="px-4 flex py-4 justify-between"><span class="material-icons mr-4">menu</span>	Menu <span @click="open=false" class="material-icons">close</span></li>
+						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">dashboard</span><span class="pl-4">Dashboard</span></a></li>
+						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">account_balance_wallet</span><span class="pl-4">My Wallet</span></a></li>
+						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">paid</span><span class="pl-4">Transaction</span></a></li>
+						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">local_atm</span><span class="pl-4">Crypto</span></a></li>
+						<li class="px-16 pl-4 border-b border-gray-800 py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">change_circle</span><span class="pl-4">Exchange</span></a></li>
+						<li class="p-2 pl-4  py-2 "><a class="flex items-center" href="/"><span class="material-icons-outlined">settings</span><span class="pl-4">Setting</span></a></li>
+					</ul>
+				</div>
+				<div class="pt-8 px-8">
+					<span class="material-icons" @click="open=true">menu</span>
+					<a href="/" class="text-4xl font-bold ml-2">Wallet</a>
+				</div>
+			</div>
+			<div class="flex-grow flex justify-between p-8">
+				<div class="max-w-sm">
+					<div class="bg-white rounded-full w-full px-4 flex items-center">
+						<span class="material-icons">search</span>
+						<input class="py-2 px-2 outline-none" type="text" placeholder="Search">
+					</div>
+				</div>
+				<div class="flex">
+					<button class="flex ml-4 bg-white w-10 h-10 rounded-full items-center justify-center">
+						<span class="material-icons-outlined">notifications</span>
+					</button>
+					<button class="flex ml-4 bg-white w-10 h-10 rounded-full items-center justify-center">
+						<span class="material-icons-outlined">message</span>
+					</button>
+					<button class="flex ml-4 bg-white w-10 h-10 rounded-full items-center justify-center">
+						<span class="material-icons-outlined">redeem</span>
+					</button>
+					<button class="flex ml-4 bg-white w-10 h-10 rounded-full items-center justify-center">
+						<span class="material-icons-outlined">settings</span>
+					</button>
+				</div>
+			</div>
+			<div class="px-2 sm:px-4 md:px-8 pb-8">
+				<div class="bg-primary rounded-xl p-2 pt-4 md:p-6">
+					<div class="flex justify-between items-center px-4">
+						<h4 class="font-semibold">Dashboard</h4>
+						<button
+							class="border border-gray-300 py-1 px-6 rounded-xl flex font-semibold text-gray-600">Filters<span
+								class="material-icons-outlined">filter_list</span></button>
+					</div>
+					<div id="charts" class="flex flex-wrap justify-between">
+						<div class="p-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+							<div class="bg-white  rounded-xl p-4">
+								<div class="flex justify-between mb-6">
+									<div
+										class="bg-icon text-white w-12 h-12 flex items-center justify-center rounded-xl ">
+										<span class="material-icons text-3xl">attach_money</span>
+									</div>
+									<div class="w-12 h-12 flex items-center justify-center"><span
+											class="material-icons cursor-pointer">more_vert</span></div>
+								</div>
+								<div class="flex justify-between">
+									<div class="w-1/2">
+										<h4 class="text-3xl font-bold mb-1">$1200</h4>
+										<span class="text-gray-600"><span class="font-bold">
+												45%
+											</span> this week</span>
+									</div>
+									<div class="flex-grow flex justify-around items-start">
+										<span
+											class="text-gray-800 material-icons text-7xl text-gray-700">trending_up</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="p-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+							<div class="bg-white  rounded-xl p-4">
+								<div class="flex justify-between mb-6">
+									<div
+										class="bg-icon text-white w-12 h-12 flex items-center justify-center rounded-xl ">
+										<span class="material-icons text-3xl">account_balance</span>
+									</div>
+									<div class="w-12 h-12 flex items-center justify-center"><span
+											class="material-icons cursor-pointer">more_vert</span></div>
+								</div>
+								<div class="flex justify-between">
+									<div class="w-1/2">
+										<h4 class="text-3xl font-bold mb-1">$232,400</h4>
+										<span class="text-gray-600"><span class="font-bold">
+												64%
+											</span> this week</span>
+									</div>
+									<div class="flex-grow flex justify-around items-start">
+										<span
+											class="text-gray-800 material-icons text-7xl text-gray-700">north_east</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="p-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+							<div class="bg-white  rounded-xl p-4">
+								<div class="flex justify-between mb-6">
+									<div
+										class="bg-icon text-white w-12 h-12 flex items-center justify-center rounded-xl ">
+										<span class="material-icons text-3xl">receipt</span>
+									</div>
+									<div class="w-12 h-12 flex items-center justify-center">
+										<span class="material-icons cursor-pointer">more_vert</span>
+									</div>
+								</div>
+								<div class="flex justify-between">
+									<div class="w-1/2">
+										<h4 class="text-3xl font-bold mb-1">634</h4>
+										<span class="text-gray-600"><span class="font-bold">
+												25%
+											</span> this week</span>
+									</div>
+									<div class="flex-grow flex justify-around items-start">
+										<span
+											class="text-gray-800 material-icons text-7xl text-gray-700">timeline</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="p-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+							<div class="bg-white  rounded-xl p-4">
+								<div class="flex justify-between mb-6">
+									<div
+										class="bg-icon text-white w-12 h-12 flex items-center justify-center rounded-xl ">
+										<span class="material-icons text-3xl">group</span>
+									</div>
+									<div class="w-12 h-12 flex items-center justify-center">
+										<span class="material-icons cursor-pointer">more_vert</span>
+									</div>
+								</div>
+								<div class="flex justify-between">
+									<div class="w-1/2">
+										<h4 class="text-3xl font-bold mb-1">12</h4>
+										<span class="text-gray-600"><span class="font-bold">
+												7%
+											</span> new customers</span>
+									</div>
+									<div class="flex-grow flex justify-around items-start">
+										<span
+											class="text-gray-800 material-icons text-7xl text-gray-700">auto_awesome</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="w-full flex flex-wrap">
+						<div class="max-w-2xl md:max-w-lg lg:max-w-2xl xl:max-w-none xl:w-2/3">
+							<div id="market-overview">
+								<div class="p-4">
+									<div class="market-header flex items-center">
+										<div class="flex-grow">
+											<h4 class="font-semibold">Market Overview</h4>
+											<p class="text-gray-500 text-xs">Price value update</p>
+										</div>
+										<button class="flex items-center border px-4 py-1 rounded-xl">Monthly (2020)
+											<span class="material-icons">expand_more</span></button>
+									</div>
+									<div class="w-full">
+										<canvas id="chart" ></canvas>
+									</div>
+								</div>
+							</div>
+							<div id="recent-activities">
+								<h4 class="font-semibold p-4">Recent Activities</h4>
+								<div class="p-4">
+									<table class="w-full text-gray-600">
+										<tbody>
+											<tr>
+												<td class="p-2"><span
+														class="material-icons bg-icon text-white w-10 h-10 rounded-full flex items-center justify-center">north_west</span>
+												</td>
+												<td>Flux Coin</td>
+												<td>10:42:23 AM</td>
+												<td>+1,454</td>
+												<td class="text-right">
+													<div
+														class="w-36 h-8 flex float-right items-center bg-green-100 text-green-900 px-4 py-2 text-sm rounded-full">
+														<span
+															class="bg-green-200 material-icons rounded-full text-xs w-6 mr-2 flex items-center justify-center h-6  border-2 border-green-300">done</span>
+														Completed
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="p-2"><span
+														class="material-icons bg-icon text-white w-10 h-10 rounded-full flex items-center justify-center">north_west</span>
+												</td>
+												<td>Block Chain Support</td>
+												<td>04:02:22 PM</td>
+												<td>+22,000</td>
+												<td class="text-right">
+													<div
+														class="w-36 h-8 flex float-right items-center bg-yellow-100 text-yellow-900 px-4 py-2 text-sm rounded-full">
+														<span
+															class="bg-yellow-200 rounded-full text-xs w-6 mr-2 flex items-center justify-center h-6  border-2 border-yellow-300">i</span>
+														Pending
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="w-full xl:w-1/3 p-4">
+							<div class="bg-icon p-4  text-white rounded-3xl">
+								<div class="w-full text-white px-4 pb-2 flex flex-wrap justify-between">
+									<h4 class="text-xl font-bold">Sell Order</h4>
+									<span class="material-icons cursor-pointer">more_vert</span>
+								</div>
+								<div class="w-full mt-4 text-gray-100">
+									<div class="flex px-4 font-semibold justify-between">
+										<span>Price</span>
+										<span>Amount</span>
+										<span>Total</span>
+									</div>
+									<div class="px-4 flex text-gray-200 py-2 pt-6 justify-between">
+										<span>31.89</span>
+										<span>0.05</span>
+										<span>$13,498</span>
+									</div>
+									<div class="px-4 flex text-gray-200 py-2 justify-between">
+										<span>50.62</span>
+										<span>0.59</span>
+										<span>$12,366</span>
+									</div>
+									<div class="px-4 flex text-gray-200 py-2 justify-between">
+										<span>81.55</span>
+										<span>0.07</span>
+										<span>$14,946</span>
+									</div>
+									<div class="px-4 flex text-gray-200 py-2 justify-between">
+										<span>13.79</span>
+										<span>0.11</span>
+										<span>$10,358</span>
+									</div>
+									<div class="bg-gray-700 rounded-full  px-4 flex text-gray-200 py-2 justify-between">
+										<span>32.08</span>
+										<span>0.65</span>
+										<span>$11,695</span>
+									</div>
+									<div class="px-4 flex text-gray-200 py-2 justify-between">
+										<span>11.48</span>
+										<span>0.09</span>
+										<span>$12,152</span>
+									</div>
+									<div class="px-4 flex text-gray-200 py-2 justify-between">
+										<span>27.95</span>
+										<span>0.57</span>
+										<span>$15,236</span>
+									</div>
+									<div class="px-4 flex text-gray-200 py-2 justify-between">
+										<span>70.91</span>
+										<span>0.89</span>
+										<span>$14,137</span>
+									</div>
+									<div class="px-4 flex text-gray-200 py-2 justify-between">
+										<span>64.77</span>
+										<span>0.84</span>
+										<span>$17,027</span>
+									</div>
+									<div class="px-4 flex text-gray-200 py-1 justify-between">
+										<span>90.83</span>
+										<span>0.27</span>
+										<span>$13,085</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 	<div id="fb-root"></div>
 	<script>
-		window.fbAsyncInit = function () {
-			FB.init({
-				xfbml: true,
-				version: 'v10.0'
-			});
-		};
+		// window.fbAsyncInit = function () {
+		// 	FB.init({
+		// 		xfbml: true,
+		// 		version: 'v10.0'
+		// 	});
+		// };
 
-		(function (d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
+		// (function (d, s, id) {
+		// 	var js, fjs = d.getElementsByTagName(s)[0];
+		// 	if (d.getElementById(id)) return;
+		// 	js = d.createElement(s); js.id = id;
+		// 	js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+		// 	fjs.parentNode.insertBefore(js, fjs);
+		// }(document, 'script', 'facebook-jssdk'));
 	</script>
 	<div class="fb-customerchat" attribution="biz_inbox" page_id="101424575461674">
 	</div>
 	<script type="module" src="/main.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-		integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
-		crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.min.js"
 		integrity="sha512-Atu8sttM7mNNMon28+GHxLdz4Xo2APm1WVHwiLW9gW4bmHpHc/E2IbXrj98SmefTmbqbUTOztKl5PDPiu0LD/A=="
 		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
+		integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
+		crossorigin="anonymous"></script>
+	<script>
+		var ctx = document.getElementById('chart');
+		// const labels = Utils.months({count: 7});
+		var myChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+				datasets: [{
+					label: '# of Sales',
+					data: [5, 14, 17, 27, 34, 52, 69, 112],
+					pointBackgroundColor: "black",
+					pointBorderColor: 'gray',
+					pointBorderWidth: 5,
+					pointRadius: 10,
+					backgroundColor: [
+						'black',
+					],
+					borderColor: [
+						'black',
+					],
+					borderWidth: 2,
+					fill: false,
+					tension: 0.5
+				}]
+			},
+			options: {
+				scales: {
+				}
+			}
+		});
+	</script>
 </body>
 
 </html>
