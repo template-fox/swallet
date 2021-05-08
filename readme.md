@@ -48,7 +48,7 @@ In any case, you can reach me out at summonshr@gmail.com or hire me.
 - [x] [Alpinejs](https://laravel-livewire.com)
 - [x] [Livewire](https://laravel-livewire.com)
 - [x] [Tailwindcss](https://tailwindcss.com)
-- [ ] [ChartJS](https://chartjs.org)
+- [x] [ChartJS](https://chartjs.org)
 
 ### Reach me at
 
