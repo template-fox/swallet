@@ -29,12 +29,9 @@ A small help would allow me to keep this task on going. I would be happy to assi
 
 I am good with Laravel, vuejs, reactjs, alpinejs, wordpress and tailwindcss.
 
-<form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="business" value="3DMDSFCAJT376" />
-<input type="hidden" name="currency_code" value="USD" />
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_NP/i/scr/pixel.gif" width="1" height="1" />
-</form>
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3DMDSFCAJT376)
+
 
 ### Contact
 
