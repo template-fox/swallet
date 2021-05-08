@@ -30,7 +30,7 @@ A small help would allow me to keep this task on going. I would be happy to assi
 I am good with Laravel, vuejs, reactjs, alpinejs, wordpress and tailwindcss.
 
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3DMDSFCAJT376)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?business=3DMDSFCAJT376&currency_code=USD)
 
 
 ### Contact
