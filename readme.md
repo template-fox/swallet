@@ -9,15 +9,17 @@ We find designs from all over the web and produce it in web format. The task is 
 
 ### Features
 
-- [x] Subscription form
 - [x] Responsive
 - [x] Menu in small screensize
 - [x] Embedd messenger 
+- [x] Chartjs embedd
+- [x] Table design
 
 ### Technologies used
 
 * Tailwindcss
 * Alpinejs
+* Chartjs
 * Messenger
 
 ### Tested at
